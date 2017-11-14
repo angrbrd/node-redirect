@@ -16,7 +16,11 @@ app.get("/home", function(req, res) {
 app.get("/redirect", function(req, res) {
   console.log("___ENTER /redirect___");
 
-  res.send("Redirect page...redirecting...");
+  res.writeHead(302, {
+    'Location': '/destination'
+  });
+
+  res.end();
 });
 
 app.get("/destination", function(req, res) {
