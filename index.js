@@ -23,11 +23,13 @@ app.get("/home", function(req, res) {
 app.get("/redirect", function(req, res) {
   console.log("___ENTER GET /redirect___");
 
-  res.writeHead(302, {
-    'Location': '/destination'
-  });
+  res.redirect(302, '/destination');
+});
 
-  res.end();
+app.post("/redirect", function(req, res) {
+  console.log("___ENTER POST /redirect___");
+
+  res.redirect(307, '/destination');
 });
 
 app.get("/destination", function(req, res) {
